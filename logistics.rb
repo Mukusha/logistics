@@ -65,8 +65,7 @@ class Logistics
 
   # 5. расчитываем стоимость перевозки (руб)
   def calculate_cost
-    volume = (@length*@width*@height)/1000000.0
-    if volume <= 1 # Если груз <= 1 м. куб., то цена = 1 руб за км,
+    if @length*@width*@height <= 1000000.0 # Если груз <= 1 м. куб., то цена = 1 руб за км,
       @price = 1*@distance
     elsif @weight < 10 # Если груз > 1 м. куб., но его вес < 10 кг, то цена = 2 руб за км
       @price = 2*@distance
