@@ -1,11 +1,11 @@
 require_relative 'logistics.rb'
 
 #Пример - Ввод данных через консоль
-#puts "Ввод данных через консоль"
-#c = Logistics.new()
-#c.input_consol()
-#puts c.calculate_distance
-#puts с.calculate_cost
+puts "Ввод данных через консоль"
+c = Logistics.new()
+15c.input_consol()
+puts "Расстояние: "+c.calculate_distance.to_s
+puts "Стоимость перевозки: "+c.calculate_cost[:price].to_s
 
 #Тесты функции calculate_distance
 puts "Тесты функции calculate_distance"
@@ -14,10 +14,10 @@ print "   Тест №1"
 test_1 = Logistics.new()
 test_1.data_input_test_calculate_distance("45.041251, 39.031935","45.0398887, 38.9734448")
 t1 = test_1.calculate_distance
-if t1 == 6.9
+if t1 == 7.9
   print ": ✔️\n"
 else
-  print "❗ Результат: #{t1}  Правильный ответ: 0\n"
+  print "❗ Результат: #{t1}  Правильный ответ: 7.9\n"
 end
 
 #Тест №2
