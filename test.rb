@@ -3,7 +3,7 @@ require_relative 'logistics.rb'
 #Пример - Ввод данных через консоль
 puts "Ввод данных через консоль"
 c = Logistics.new()
-15c.input_consol()
+c.input_consol()
 puts "Расстояние: "+c.calculate_distance.to_s
 puts "Стоимость перевозки: "+c.calculate_cost[:price].to_s
 
