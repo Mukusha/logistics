@@ -1,0 +1,84 @@
+
+<%= form_with model: @user do |form| %>
+<table style="width: 518px;">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 518px; height: 29px;">
+<p><strong>Данные пользователя:</strong></p>
+</td>
+</tr>
+<tr style="height: 131px;">
+<td style="width: 518px; height: 131px;">
+<table style="width: 510px;">
+<tbody>
+<tr>
+<td style="width: 66.2344px;">Имя</td>
+<td style="width: 445.766px;"><%= form.text_field :first_name %>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Фамилия</td>
+<td style="width: 445.766px;"><%= form.text_field :last_name %></td>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Отчество</td>
+<td style="width: 445.766px;"><%= form.text_field :father_name %></td>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Телефон</td>
+<td style="width: 445.766px;"><%= form.text_field :phone %></td>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Email</td>
+<td style="width: 445.766px;"><%= form.text_field :email %></td>
+</tr>
+</tbody>
+</table>
+
+
+  
+</td>
+</tr>
+<tr style="height: 35px;">
+<td style="width: 518px; height: 35px;">
+<p><strong>Параметры груза:</strong></p>
+</td>
+</tr>
+<tr style="height: 100px;">
+<td style="width: 518px; height: 100px;">
+<table style="width: 502px;">
+<tbody>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Вес(кг)</td>
+<td style="width: 120px; height: 13px;"><%= form.text_field :weight %></td>
+<td style="width: 264.328px; height: 13px;">Ширина(см)</td>
+<td style="width: 120px; height: 13px;"><%= form.text_field :width %></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Длина(см)</td>
+<td style="width: 120px; height: 13px;"><%= form.text_field :length %></td>
+<td style="width: 264.328px; height: 13px;">Высота(см)</td>
+<td style="width: 120px; height: 13px;"><%= form.text_field :height %></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Пункт отправления</td>
+<td style="width: 263.672px; height: 13px;"><%= form.text_field :point_of_departure  %></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Пункт назначения</td>
+<td style="width: 263.672px; height: 13px;"><%= form.text_field :destination  %></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div>
+    <%= form.submit %>
+</div>
+
+<% end %>
+
+<h1>Заявки:</h1>
+
