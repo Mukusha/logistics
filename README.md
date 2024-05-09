@@ -7,3 +7,7 @@
 ```
 ruby bin\rails server
 ```
+
+**Скриншоты:**
+
+![1715289244308](images/README/1715289244308.png)
