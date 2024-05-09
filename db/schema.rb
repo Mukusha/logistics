@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_112627) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_093224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cargos", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "weight"
+    t.float "length"
+    t.float "width"
+    t.string "height"
+    t.text "point_of_departure"
+    t.text "destination"
+    t.float "distance"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cargos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -25,4 +40,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_112627) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "cargos", "users"
 end
