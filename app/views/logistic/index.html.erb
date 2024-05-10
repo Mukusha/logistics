@@ -1,0 +1,184 @@
+<style>
+	.demo {
+		width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #000000;
+  border-style: solid;
+  color: #000000;
+	}
+    .demo td, .demo th {
+  border-width: 2px;
+  border-color: #000000;
+  border-style: solid;
+  padding: 3pt;
+  text-align:center;
+}
+
+.demo thead {
+  background-color: #a8fba2;
+}
+
+</style>
+
+<table style="width: 518px;" >
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 518px; height: 29px;">
+<p><strong>Данные пользователя:</strong></p>
+</td>
+</tr>
+<tr style="height: 131px;">
+<td style="width: 518px; height: 131px;">
+
+<form action="/logistic" accept-charset="UTF-8" method="post">
+<table style="width: 510px;">
+<tbody>
+<tr>
+<td style="width: 66.2344px;">Имя</td>
+
+<td style="width: 445.766px;"><input type="text" name="user[first_name]" id="user_first_name">
+</tr>
+<tr>
+<td style="width: 66.2344px;">Фамилия</td>
+<td style="width: 445.766px;"><input type="text" name="user[last_name]" id="user_last_name"></td>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Отчество</td>
+<td style="width: 445.766px;"><input type="text" name="user[father_name]" id="user_father_name"></td>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Телефон</td>
+<td style="width: 445.766px;"><input type="text" name="user[phone]" id="user_phone"></td>
+</tr>
+<tr>
+<td style="width: 66.2344px;">Email</td>
+<td style="width: 445.766px;"><input type="text" name="user[email]" id="user_email"></td>
+</tr>
+</tbody>
+</table>
+
+</td>
+</tr>
+<tr style="height: 35px;">
+<td style="width: 518px; height: 35px;">
+<p><strong>Параметры груза:</strong></p>
+</td>
+</tr>
+<tr style="height: 100px;">
+<td style="width: 518px; height: 100px;">
+<table style="width: 502px;">
+<tbody>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Вес(кг)</td>
+<td style="width: 120px; height: 13px;"><input type="text" name="cargo[weight]" id="cargo_weight"></td>
+<td style="width: 264.328px; height: 13px;">Ширина(см)</td>
+<td style="width: 120px; height: 13px;"><input type="text" name="cargo[width]" id="cargo_width"></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Длина(см)</td>
+<td style="width: 120px; height: 13px;"><input type="text" name="cargo[length]" id="cargo_length"></td>
+<td style="width: 264.328px; height: 13px;">Высота(см)</td>
+<td style="width: 120px; height: 13px;"><input type="text" name="cargo[height]" id="cargo_height"></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Пункт отправления</td>
+<td style="width: 263.672px; height: 13px;"><input type="text" name="cargo[point_of_departure]" id="cargo_point_of_departure"></td>
+</tr>
+<tr style="height: 13px;">
+<td style="width: 240px; height: 13px;">Пункт назначения</td>
+<td style="width: 263.672px; height: 13px;"><input type="text" name="cargo[destination]" id="cargo_destination"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div>
+    <%= button_to "Сохранить", "/logistic", metod: :post %>
+</div>
+
+</form>
+
+
+<table  class="demo">
+	<tbody>
+		<caption><h1>Заявки</h1></caption>
+	<thead>
+		<tr>
+            <td colspan="1">id</td>
+			<td colspan="5">Данные пользователя</td>
+			<td colspan="8">Параметры груза</td>
+		</tr>
+		<tr>
+            <td></td>
+			<td>Имя</td>
+			<td>Фамилия</td>
+			<td>Отчество</td>
+			<td>Телефон</td>
+			<td>E-mail</td>
+			<td>Вес</td>
+			<td>Ширина</td>
+			<td>Длинна</td>
+			<td>Высота</td>
+			<td>Пункт отправления</td>
+			<td>Пункт назначения</td>
+			<td>Дистанция</td>
+			<td>Стоимость</td>
+		</tr>
+        </thead>
+        <tbody>
+    <% @cargos.each do |cargo| %>
+		<tr>
+			<td><%= cargo.id %></td>
+			<td><%= cargo.user.first_name %></td>
+			<td><%= cargo.user.last_name %></td>
+			<td><%= cargo.user.father_name %></td>
+			<td><%= cargo.user.phone %></td>
+			<td><%= cargo.user.email %></td>
+			<td><%= cargo.weight %></td>
+			<td><%= cargo.width %></td>
+			<td><%= cargo.length %></td>
+			<td><%= cargo.height %></td>
+			<td><%= cargo.point_of_departure %></td>
+			<td><%= cargo.destination %></td>
+			<td><%= cargo.distance %></td>
+			<td><%= cargo.price %></td>
+			<td> <a href="/logistic/<%= cargo.id %>" metod::get ><%= "Открыть" %></td>
+			<td><a data-turbo-method="delete" data-turbo-confirm="Вы действительно хотите удалить заявку?" href="/logistic/<%= cargo.id %>">Удалить</a>
+		 </td>
+			 </tr>
+    <% end %>
+	</tbody>
+</table>
+
+
+<table class="demo"style="width: 518px;" >
+	<caption><h1>Пользователи</h1></caption>
+	<thead>
+	
+		<tr>
+			<td><strong>id<strong></td>
+			<td><strong>Имя<strong></td>
+			<td><strong>Фамилия<strong></td>
+			<td><strong>Отчество<strong></td>
+			<td><strong>Телефон<strong></td>
+			<td><strong>E-mail<strong></td>
+		</tr>
+			</thead>
+		<tbody>
+    <% @users.each do |user| %>
+		<tr>
+			<td><%= user.id %></td>
+			<td><%= user.first_name %></td>
+			<td><%= user.last_name %></td>
+			<td><%= user.father_name %></td>
+			<td><%= user.phone %></td>
+			<td><%= user.email %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

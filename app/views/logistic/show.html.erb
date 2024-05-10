@@ -1,0 +1,71 @@
+<style>
+	.demo {
+		width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #000000;
+  border-style: solid;
+  color: #000000;
+	}
+    .demo td, .demo th {
+  border-width: 2px;
+  border-color: #000000;
+  border-style: solid;
+  padding: 3pt;
+  text-align:center;
+}
+
+.demo thead {
+  background-color: #a8fba2;
+}
+
+</style>
+<table class="demo">
+    <caption>Заявка № <%= @cargo.id %></caption>
+	<thead>
+		<tr>
+            <td colspan="1">id</td>
+			<td colspan="5">Данные пользователя</td>
+			<td colspan="8">Параметры груза</td>
+		</tr>
+		<tr>
+            <td></td>
+			<td>Имя</td>
+			<td>Фамилия</td>
+			<td>Отчество</td>
+			<td>Телефон</td>
+			<td>E-mail</td>
+			<td>Вес</td>
+			<td>Ширина</td>
+			<td>Длинна</td>
+			<td>Высота</td>
+			<td>Пункт отправления</td>
+			<td>Пункт назначения</td>
+			<td>Дистанция</td>
+			<td>Стоимость</td>
+		</tr>
+        </thead>
+        <tbody>
+		<tr>
+            <td><%= @cargo.id %></td>
+			<td><%= @cargo.user.first_name %></td>
+			<td><%= @cargo.user.last_name %></td>
+			<td><%= @cargo.user.father_name %></td>
+			<td><%= @cargo.user.phone %></td>
+			<td><%= @cargo.user.email %></td>
+			<td><%= @cargo.weight %></td>
+			<td><%= @cargo.width %></td>
+			<td><%= @cargo.length %></td>
+			<td><%= @cargo.height %></td>
+			<td><%= @cargo.point_of_departure %></td>
+			<td><%= @cargo.destination %></td>
+			<td><%= @cargo.distance %></td>
+			<td><%= @cargo.price %></td>
+		</tr>
+	</tbody>
+</table>
+
+ <a href="/logistic">Назад
+		 
+
